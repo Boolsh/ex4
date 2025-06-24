@@ -178,6 +178,29 @@ using sMap = std::map<std::string, std::vector<int>>;
 //    return res;
 //}
 
+//2_2
+ //Хэширование.Описать функцию, которая принимает хэш - таблицу(разрешение коллизий внут -
+ //   реннее, с индикатором ячейки false, true) и ключ(string) и осуществляет поиск информации по ключу.
+ //   Библиотека HashTable_2.h, файл данных Data_2.txt
+//#include "Hh2.h"
+//
+//
+//int task2(HashTableBool& ht, std::string key)
+//{
+//    int result = -1;
+//    int index = ht.hash(key);
+//    Vector t = ht.get_table();
+//    size_t ms = ht.get_max_size();
+//
+//    while (t[index].used && t[index].info.first != key)
+//        index = (index + 1) % ms;
+//
+//    if (t[index].used)
+//        result = index;
+//
+//    return result;
+//}
+
 //2_3 Описать функцию, которая принимает хэш-таблицу (разрешение коллизий 
 //внутреннее, с индикатором ячейки –1, 0, 1) и ключ(string) и осуществляет ПОИСК информации по
 //ключу.Библиотека HashTable_1.h, файл данных Data_2.txt
@@ -546,12 +569,6 @@ int task4_2(int* arr)
     return global_min;
 }
 
-void init_array(int* arr)
-{
-    for (size_t i = 0; i < COUNT; ++i)
-        arr[i] = rand() % 1000 - 7;
-}
-
 int min_non_parallel(int* arr)
 {
     int min_val{ arr[0] };
@@ -642,6 +659,18 @@ int main()
     //    for (std::string i : word_set)
     //        std::cout << i << " ";
 
+
+    //2_2
+    //std::ifstream file("Data_2.txt");
+    //HashTableBool ht(15);
+    //ht.fill(file);
+
+    //int res2 = task2(ht, "oihgvb");
+    //if (res2 == -1)
+    //    std::cout << "NOT FOUND\n";
+    //else std::cout << res2;
+
+    
     //2_3
     //std::ifstream file("gavno.txt");
     //HashTableInt table(100);
@@ -702,13 +731,12 @@ int main()
     //std::cout << "parallel = " << task4_1(arr) << '\n';
 
     //4_2
-    srand(GetTickCount());
+    srand(GetTickCount64());
     int arr[COUNT];
-    init_array(arr);
-
+    std::ifstream file("");
     for (size_t i = 0; i < COUNT; ++i)
     {
-        std::cout << arr[i] << ' ';
+        file >> arr[i];
     }
     std::cout << "\n\n";
 
